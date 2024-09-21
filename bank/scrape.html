@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width",  initial-scale=1.0">
+        <title>Web Scrape Sample</title>
+    </head>
+    <body>
+        <dl>
+            <dt>Citations</dt>
+            <dd></dd>
+            <dt>h-index</dt>
+            <dt>i10-index</dt>
+            <dt></dt>
+        </dl>
+        <script>
+            var dd = document.querySelectorAll("dd");
+            var xhr = new XMLHttpRequest();
+
+            xhr.open("GET", "https://www.moxio.com/blog/12/how-to-make-a-cross-domain-request-in-javascript-using-cors",true)
+            // we are not expecting data such as csv, json etc.. we are expecting html page, hence "document"
+            xhr.responseType = "document"
+            xhr.withCredentials = true;
+            xhr.onload = function() {
+
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    console.log(xhr.data)
+
+                }
+            };
+
+            xhr.onerror = function() {
+                console.error(xhr.status, xhr.statusText);
+
+            }
+
+            xhr.send();
+        </script>
+
+    </body>
+    </html>
+</html>

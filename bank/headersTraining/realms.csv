@@ -1,0 +1,7 @@
+Domain,Agent Group, Resource,P/U
+WHL-SEM, WHL-SEMGrp, /, p
+ABC-1LOVE,ABC-1LOVEGrp,/login, U
+ABC-1LOVE,ABC-1LOVEGrp,/,P
+BCD-MAKEME,BCD-MAKEMGrp,/api, P
+CDF-WHAT,CDF-WHATGrp,/what1, P
+CDF-WHAT,CDF-WHATGrp,/what2, P

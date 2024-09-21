@@ -1,0 +1,25 @@
+{
+  "people": [
+    {
+      "name": "Mikeo",
+      "city": "Salas",
+      "email": [
+        "one@google.com"
+      ]
+    },
+    {
+      "name": "Richard",
+      "city": "Salinas",
+      "email": [
+        "one@hotmail.com.com"
+      ]
+    },
+    {
+      "name": "Bird",
+      "city": "Salas",
+      "email": [
+        "one@abc.com"
+      ]
+    }
+  ]
+}

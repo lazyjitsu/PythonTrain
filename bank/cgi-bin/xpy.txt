@@ -1,0 +1,3 @@
+import re
+
+a = ["abcdee00x0004-xiv","abxxi33a0014-p3c","sexrbuei3299-absak"]

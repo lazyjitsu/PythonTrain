@@ -1,0 +1,8 @@
+Domain,Policy,User Store,Resource
+WHL-SEM, Sem Policy, Sem store, /sem
+ABC-1LOVE,1LOVE Policy1, ABC-1 store, /
+ABC-1LOVE,1LOVE Policy2, ABC-1 store, /login
+BCD-MAKEME,MAKEME Policy, 1LOVE store, /api
+CDF-WHAT,WHAT Policy1, WHAT store, /what1
+CDF-WHAT,WHAT Policy2, WHAT store, /what2
+

@@ -1,0 +1,88 @@
+import cgi
+
+class mycolors:
+    HEADER =     "\33[95m"
+    Black =      "\u001b[30;1m"
+    Red =        "\u001b[31;1m"
+    Green =      "\u001b[32;1m"
+    Yellow =     "\u001b[33;1m"
+    Blue =       "\u001b[34;1m"
+    Magenta =    "\u001b[35;1m"
+    Cyan = "\u001b[36;1m"
+    White = "\u001b[37;1m"
+    Reset = "\u001b[0m"
+    
+print("Content-type:text/html\r\n\r\n")
+print("<html><body>")
+print("<h1> App Page Boyyyy!</h1>")
+form = cgi.FieldStorage()
+if form.getvalue("name"):
+    searchobj = form.getvalue("name")
+    print("<h1>You sent me: " +name+" and so we shall now search for the participating system</h1><br />")
+    if form.getvalue("prod"):
+        print("<h3>You selected Production!</h3>")
+    if form.getvalue("uat"):
+        print("<h3>You selected UAT bro!!</h3>")
+    if form.getvalue("prodfix"):
+        print("<h3>You selected ProdFix bro!!</h3>")
+    if form.getvalue("sit"):
+        print("<h3>You selected SIT!!</h3>")
+    if form.getvalue("dev"):
+        print("<h3>You selected Dev bro!!</h3>")
+print("</body></html>")
+
+#print(f"F yes!! {name}")
+data = [{'Domain':'Business Banking','DefAgent':'suzuiki123-mapped'},{'Domain':'Business Banking','DefAgent':'suzuiki124-mapped'},{'Domain':'Safeway','DefAgent':'wppi2345-app'},\
+    {'Domain':'Safeway','DefAgent':'wppi2346-app'}]
+ops = {}
+opsidx = int(0)
+def getDomain(d):
+    print(f"Called with {ad}")
+    for i in d:
+        print(mycolors.Blue + f"Ops {i} ")
+        for j in d[i]:
+            for k in j:
+                print(f"All: " + mycolors.Red + f" {j} " + mycolors.Blue + f"Root key " + mycolors.Red + f"{k} " + mycolors.Blue +  "and Root keys data " + mycolors.Red + f"{j[k]}")
+    return k
+
+print(f"Starting with {data}")
+for i in range(len(data)):
+    #print(f"Checking: { data[i]['Domain']} ")
+    if len(ops) == 0:
+        #print(f'First time here  length of ops {len(ops)} and length of data: {len(data)}')
+        ops['Domain'] = [{data[i]['Domain']:{'DefAgent':[]}}]
+        d = getDomain(ops)
+        ops['Domain'][0][d]['DefAgent'].append(data[i]['DefAgent'])
+        print(mycolors.Green + f"FFFF: {ops['Domain'][0][d]['DefAgent']}")
+        if data[i]['Domain'] == getDomain(ops):
+            print(mycolors.Blue + f"!!!!The data {data[i]['Domain']} is same as ops domain: " + mycolors.Red + f"{getDomain(ops)}")
+            ##Add agents and others to the same domain
+        else:
+            # we shouldn't be here because our length is zero!!
+            print(mycolors.Blue + f"Diff!! data {data[i]['Domain']} is diff than  domain: " + mycolors.Red + f"{checkDomain(ops)}")
+    else:
+        if len(ops) > 0:
+            if  data[i]['Domain'] == getDomain(ops):          
+                print(f"!!!!The else data  "+ mycolors.Blue + f"{data[i]['Domain']} is same as ops domain: " + mycolors.Red + f"{getDomain(ops)}")
+                ops['Domain'][0][d]['DefAgent'].append(data[i]['DefAgent'])
+        # this is the domain's data continued
+        if data[i]['Domain'] == getDomain(ops):
+            print(mycolors.Green + f"2nd record " + mycolors.Blue + f"{data[i]['Domain']} is same as ops domain: " + mycolors.Red + f"{getDomain(ops)}" )
+            #ops['Domain'].append(data[i]['DefAgent'])
+            print(mycolors.Yellow + f"---------------------------------------------------------------------------------------------------------------------------------------------------------")
+            mycolors.White
+        else:
+            # the domain is now changed!! time to setup a new domain here if need be!!
+            print(mycolors.Green + f"Data " + mycolors.Red + f"{data[i]['Domain']} " + mycolors.Green + "is NOT domain: " + mycolors.Red + f"{getDomain(ops)}")
+            ops['Domain'].append({data[i]['Domain']:[data[i]['DefAgent']]})
+            x = len(ops)
+            print(mycolors.Green + f"Done with 2nd domain: {ops} andd {ops['Domain'][len(ops)].get(data[i]['Domain'])[0] } ")
+
+        print(mycolors.Yellow + f"---------------------------------------------------------------------------------------------------------------------------------------------------------")
+        #checkDomain(ops)
+
+print(f"OPS: {ops}")
+
+for i in ops:
+    if i == searchobj:
+        print(f"{i} Found u!!!")
